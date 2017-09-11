@@ -1,10 +1,10 @@
-node flask-host {
+node default {
 
 docker::image {'nickage87/flask-app:1.0':
         docker_file     => '/root/flask-docker/Dockerfile',
         #subscribe      => File['/root/flask-docker/Dockerfile'],
 }
 
-include docker
+#include docker
 
 }
