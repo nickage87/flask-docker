@@ -23,6 +23,11 @@ file {'/root/Dockerfile':
 file {'/root/flaskapp.py':
         source  =>      "file:///root/flask-app/flaskapp.py",
 }
+file {'/home/ubuntu/update.sh':
+	mode	=>	'0700',
+	owner	=>	'ubuntu',
+        source  =>      "file:///root/flask-docker/update.sh",
+}
 docker::run {'flask-app-1.0':
         image           => 'nickage87/flask-app:1.0',
         restart_service => false,
