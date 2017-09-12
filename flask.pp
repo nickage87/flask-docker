@@ -7,10 +7,16 @@ node default {
 #}
 docker::image {'nickage87/flask-app:1.0':
         docker_file     => '/root/flask-docker/Dockerfile',
-        subscribe      => File['/root/Dockerfile'],
+        subscribe      => [
+				File['/root/Dockerfile'],
+				File['/root/flaskapp.py'],
+			],
 }
 file {'/root/Dockerfile':
-	source => "https://github.com/nickage87/flask-docker/blob/master/Dockerfile",
+	source	=> "https://raw.githubusercontent.com/nickage87/flask-docker/master/Dockerfile",
+}
+file {'/root/flaskapp.py':
+	source	=> "https://raw.githubusercontent.com/nickage87/flask-app/master/flaskapp.py", 
 }
 docker::run {'flask-app-1.0':
 	image           => 'nickage87/flask-app:1.0',
