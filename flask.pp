@@ -22,7 +22,7 @@ docker::run {'flask-app-1.0':
 	image           => 'nickage87/flask-app:1.0',
 	restart_service => true,
 	privileged      => false,
-	pull_on_start   => false,
+	pull_on_start   => true,
 	ports           => [ '80:80' ],
 	expose          => [ '80' ],
 
