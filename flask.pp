@@ -6,7 +6,7 @@ node default {
 #	source   => 'git@github.com:nickage87/flask-docker.git',
 #}
 docker::image {'nickage87/flask-app:1.0':
-        docker_file     => '/root/flask-docker/Dockerfile',
+        docker_file     => '/root/Dockerfile',
         subscribe      => [
 				File['/root/Dockerfile'],
 				File['/root/flaskapp.py'],
