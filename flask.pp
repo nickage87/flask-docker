@@ -30,6 +30,5 @@ docker::run {'flask-app-1.0':
         pull_on_start   => true,
         ports           => [ '80:80' ],
         expose          => [ '80' ],
-
 }
 }
